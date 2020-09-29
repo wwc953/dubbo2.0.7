@@ -74,6 +74,7 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
 
     public void onApplicationEvent(ApplicationEvent event) {
 	    //TODO Spring Event事件 观察者模式
+        //TODO spring启动完成后，监听Spring Event事件，进行服务的暴露
         // 兼容Spring2.0.1
         if ("org.springframework.context.event.ContextStartedEvent".equals(event.getClass().getName())) {
             if (isDelay()) {
