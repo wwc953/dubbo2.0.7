@@ -73,7 +73,9 @@ public class ServiceBean<T> extends ServiceConfig<T> implements InitializingBean
     }
 
     public void onApplicationEvent(ApplicationEvent event) {
-        if ("org.springframework.context.event.ContextStartedEvent".equals(event.getClass().getName())) { // 兼容Spring2.0.1
+	    //TODO Spring Event事件 观察者模式
+        // 兼容Spring2.0.1
+        if ("org.springframework.context.event.ContextStartedEvent".equals(event.getClass().getName())) {
             if (isDelay()) {
                 if (logger.isInfoEnabled()) {
                     logger.info("The service ready on spring started. service: " + getInterface());

@@ -29,6 +29,7 @@ import com.alibaba.dubbo.container.Container;
  * @author william.liangf
  */
 @Extension("standalone")
+//TODO 负责加载 xml 配置，生成对应的 bean
 public class StandaloneContainer implements Container {
 
     private static final Logger LOGGER                = LoggerFactory.getLogger(StandaloneContainer.class);
@@ -48,6 +49,7 @@ public class StandaloneContainer implements Container {
         if (configPath == null || configPath.length() == 0) {
             configPath = DEFAULT_SPRING_CONFIG;
         }
+        //解析Spring xml配置文件
         context = new ClassPathXmlApplicationContext(configPath.split("[,\\s]+"));
         context.start();
         LOGGER.info("Dubbo standalone container started!");
