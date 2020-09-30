@@ -168,7 +168,9 @@ public class ExtensionLoader<T> {
                     type + ")  could not be instantiated: " + t.getMessage(), t);
         }
     }
-    
+
+    //TODO 为生成的 instance 注入变量；
+    //TODO 其目标是搜索所有 set 开头，同时只有一个入参的函数，执行该函数，对变量进行注入
     private void injectExtension(Object instance) {
         try {
             for (Method method : instance.getClass().getMethods()) {
